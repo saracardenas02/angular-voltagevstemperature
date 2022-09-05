@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header">
+        Header
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Voltage</th>
+                    <th>Temperature</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let graph of Graphs
+                | paginate: { itemsPerPage: 5, currentPage: page };">
+                    <td>{{graph.voltage}}</td>
+                    <td>{{graph.temperature}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <pagination-controls (pageChange)="page = $event"
+         previousLabel="Anterior" 
+         nextLabel="Siguiente">
+
+        </pagination-controls>
+
+    </div>
+</div>
